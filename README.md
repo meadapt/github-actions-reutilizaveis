@@ -52,7 +52,7 @@ on:
 
 jobs:
   do-it:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/reusable/add_project_to_issue.yml@v1.0
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@v1.0
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         ACCOUNT_TYPE: ${{ secrets.ACCOUNT_TYPE }}

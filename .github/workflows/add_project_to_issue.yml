@@ -7,7 +7,7 @@ on:
 
 jobs:
   do-it:
-    uses: gabrielbdornas/reusable-workflows/.github/workflows/reusable/add_project_to_issue.yml@main
+    uses: gabrielbdornas/reusable-workflows/.github/workflows/add_project_to_issue_reusable.yml@main
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         ACCOUNT_TYPE: ${{ secrets.ACCOUNT_TYPE }}
