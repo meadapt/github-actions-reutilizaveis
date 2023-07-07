@@ -6,8 +6,8 @@ Conjunto de fluxos de trabalho ou GitHub Actions reutilizáveis, conforme propos
 - [GitHub Actions - Calling Reusable Workflows](https://www.youtube.com/watch?v=2dxmvDL1gP8).
 
 Quando um novo Github Actions reutilizável é criado, sua documentação deve ser adicionada abaixo, devendo as informações confidenciais (secrets) serem bem projetadas para evitar o erro ["invalid secret, is not defined in the referenced workflow"](https://github.com/orgs/community/discussions/26749).
-A documentação incluída abaixo sempre sugerirá a utilização da versão mais atual do Github Actions reutilizável na propriedade `uses` do `job` `do-it`.
-Para utilização de versões anteriores basta incluir a versão desejada após o `@`, na propriedade `uses` do `job` `do-it`.
+A documentação incluída abaixo utiliza `@RELEASE_VERSION` ao final da propriedade `uses` do `job` `do-it`.
+Para configurar a versão desejada basta incluir a mesma após o `@`, na propriedade `uses` do `job` `do-it`.
 Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
 
 ## Atualização de versões
@@ -52,7 +52,7 @@ on:
 
 jobs:
   do-it:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@v1.0
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         ACCOUNT_TYPE: ${{ secrets.ACCOUNT_TYPE }}
