@@ -1,0 +1,15 @@
+# This uses a reusable workflow
+name: Reusable Workflow to add a project to issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  do-it:
+    uses: gabrielbdornas/reusable-workflows/.github/workflows/add_project_to_issue_reusable.yml@main
+    secrets:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        USER: ${{ secrets.USER }}
+        TYPE: ${{ secrets.TYPE }}
+        PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}

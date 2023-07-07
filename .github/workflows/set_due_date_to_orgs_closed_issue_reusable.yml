@@ -1,0 +1,97 @@
+name: Set due date to orgs closed issue
+
+on:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        description: 'A token passed from the caller workflow'
+        required: true
+      USER:
+        description: 'A github user to what a project will be selected'
+        required: true
+      PROJECT_NUMBER:
+        description: 'A GitHub project number of the given user that will be updated'
+        required: true
+
+jobs:
+  set-duo-date-to-orgs-closed-issue:
+    name: Set duo date to orgs closed issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get project data
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          USER: ${{ secrets.USER }}
+          PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
+          ISSUE_ID: ${{ github.event.issue.node_id }}
+        run: |
+          gh api graphql -f query='
+            query($org: String!, $number: Int!) {
+              organization(login: $org){
+                projectV2(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f org=$USER -F number=$PROJECT_NUMBER > project_data.json
+          echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
+          echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'BOARD_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Board") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'ITERATION_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Iteration") | .options[] | select(.name=="Todo") |.id' project_data.json) >> $GITHUB_ENV
+          echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Due Date") | .id' project_data.json) >> $GITHUB_ENV
+      - name: Get Issue Node Id
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ISSUE_ID: ${{ github.event.issue.node_id }}
+        run: |
+          item_id="$( gh api graphql -f query='
+            mutation($project:ID!, $issue:ID!) {
+              addProjectV2ItemById(input: {projectId: $project, contentId: $issue}) {
+                item {
+                  id
+                }
+              }
+            }' -f project=$PROJECT_ID -f issue=$ISSUE_ID --jq '.data.addProjectV2ItemById.item.id')"
+          echo 'ITEM_ID='$item_id >> $GITHUB_ENV
+      - name: Get date
+        run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
+
+      - name: Set Duo Date
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh api graphql -f query='
+            mutation (
+              $project: ID!
+              $item: ID!
+              $date_field: ID!
+              $date_value: Date!
+            ) {
+              set_date_posted: updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $date_field
+                value: { 
+                  date: $date_value
+                }
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }' -f project=$PROJECT_ID -f item=$ITEM_ID -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent

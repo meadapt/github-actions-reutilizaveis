@@ -1,0 +1,27 @@
+name: Add project to issue
+
+on:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        description: 'A token passed from the caller workflow'
+        required: true
+      USER:
+        description: 'A github user to what a project will be selected'
+        required: true
+      TYPE:
+        description: 'A github type of repo. It must be "users" or "orgs".'
+        required: true
+      PROJECT_NUMBER:
+        description: 'A GitHub project number of the given user that will be updated'
+        required: true
+
+jobs:
+  add-project-to-issue:
+    name: Add project to issue
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: "https://github.com/${{ secrets.TYPE }}/${{ secrets.USER }}/projects/${{ secrets.PROJECT_NUMBER }}"
+          github-token: ${{ secrets.GH_TOKEN }}
