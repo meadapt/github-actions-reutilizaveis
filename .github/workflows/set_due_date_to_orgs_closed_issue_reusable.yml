@@ -4,13 +4,13 @@ on:
   workflow_call:
     secrets:
       GH_TOKEN:
-        description: 'A token passed from the caller workflow'
+        description: 'A token passed from the caller workflow.'
         required: true
-      USER:
-        description: 'A github user to what a project will be selected'
+      ACCOUNT:
+        description: 'A github account type that owns the repo.'
         required: true
       PROJECT_NUMBER:
-        description: 'A GitHub project number of the given user that will be updated'
+        description: 'A GitHub project number of the given user that will be updated.'
         required: true
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Get project data
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          USER: ${{ secrets.USER }}
+          USER: ${{ secrets.ACCOUNT }}
           PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
           ISSUE_ID: ${{ github.event.issue.node_id }}
         run: |
@@ -86,7 +86,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
