@@ -1,0 +1,15 @@
+# This uses a reusable workflow
+name: Test
+
+on: push
+
+jobs:
+  do-it:
+    - name: See repo owner
+      env:
+        OWNER: ${{ github.event.repository.owner }}
+      run: echo $OWNER
+    - name: See repo name
+      env:
+        NAME: ${{ github.event.repository.name }}
+      run: echo $NAME
