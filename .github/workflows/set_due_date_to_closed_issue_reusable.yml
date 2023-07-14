@@ -40,7 +40,7 @@ jobs:
       - name: Get project data
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          USER: ${{ github.event.repository.name }}
+          USER: ${{ steps.split.outputs.owner }}
           PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
           ISSUE_ID: ${{ github.event.issue.node_id }}
         run: |
