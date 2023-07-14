@@ -7,19 +7,15 @@ jobs:
   do-it:
     runs-on: ubuntu-latest
     steps:
-      - name: See repo owner
-        continue-on-error: true
-        env:
-          OWNER: ${{ github.event.repository.owner }}
-        run: echo $OWNER
       - name: See repo name
-        if: ${{ ! cancelled() }}
-        continue-on-error: true
         env:
           NAME: ${{ github.event.repository.name }}
         run: echo $NAME
       - name: See repo owner/name
-        if: ${{ ! cancelled() }}
+        id: split
         env:
           OWNER_NAME: ${{ github.repository }}
-        run: echo $OWNER_NAME
+        run: echo "::set-output name=owner::${OWNER_NAME##*/}"
+      - name: Test variable owner
+        run: |
+          echo ${{ steps.split.outputs.owner }}
