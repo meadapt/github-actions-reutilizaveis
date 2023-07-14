@@ -15,7 +15,7 @@ jobs:
         id: split
         env:
           OWNER_NAME: ${{ github.repository }}
-        run: echo "::set-output name=owner::${OWNER_NAME##*/}"
+        run: echo "::set-output name=owner::${OWNER_NAME%/*}"
       - name: Test variable owner
         run: |
           echo ${{ steps.split.outputs.owner }}
