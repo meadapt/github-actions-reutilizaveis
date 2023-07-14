@@ -10,5 +10,4 @@ jobs:
     uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@main
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        ACCOUNT_TYPE: ${{ secrets.ACCOUNT_TYPE }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
