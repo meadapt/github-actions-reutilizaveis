@@ -13,7 +13,7 @@ Quando um novo Github Actions reutilizável é criado, sua documentação deve s
 
 - Atualização da documentação (principalmente versão) no arquivo `READEME.md`.
 - Atualização arquivo `CHANGELOG.md` com um resumo das modificações da versão.
-- Realiza um commit com o número da nova versão. Exemplo: `git commit -m 'v1.0'`.
+- Realiza um commit com o número da nova versão. Exemplo: `git commit -m 'v1.0' --allow-empty`.
 - Criação de tag e vinculação da mesma com o último commit:
 
 ```
