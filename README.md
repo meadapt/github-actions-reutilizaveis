@@ -5,9 +5,9 @@ Conjunto de fluxos de trabalho ou GitHub Actions reutilizáveis, conforme propos
 - [GitHub Actions Reusable Workflows FULL TUTORIAL with Examples: Templates on Steroids](https://www.youtube.com/watch?v=lRypYtmbKMs).
 - [GitHub Actions - Calling Reusable Workflows](https://www.youtube.com/watch?v=2dxmvDL1gP8).
 
-Quando um novo Github Actions reutilizável é criado, sua documentação deve ser adicionada abaixo, devendo as informações confidenciais (secrets) serem bem projetadas para evitar o erro ["invalid secret, is not defined in the referenced workflow"](https://github.com/orgs/community/discussions/26749). A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma após o `@`.
+Quando um novo Github Actions reutilizável é criado, sua documentação deve ser adicionada abaixo, devendo as informações confidenciais (secrets) serem bem projetadas para evitar o erro ["invalid secret, is not defined in the referenced workflow"](https://github.com/orgs/community/discussions/26749).
 
-**A versão mais atualizada publicada é a [v2.0](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tree/v2.0)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
+A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma após no lugar de `@RELEASE_VERSION`. **A versão mais atualizada publicada é a [v2.0](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tree/v2.0)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
 
 ## Atualização de versões
 
@@ -30,7 +30,7 @@ $ git push origin v1.0
 
 ## Adicionar projeto em um novo issue
 
-[Este GitHub Actions reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/reusable/add_project_to_issue.yml) foi criado para automatizar o processo de vinculação [de um projeto a um novo issue](https://github.com/actions/add-to-project).
+[Este GitHub Actions reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_project_to_issue.yml) foi criado para automatizar o processo de vinculação [de um projeto a um novo issue](https://github.com/actions/add-to-project).
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -64,7 +64,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
   - PROJECT_NUMBER: número GitHub Project.
-- Crie o arquivo `.github/workflow/set_due_date_to_closed_issue.yml.yml` com o seguinte conteúdo:
+- Crie o arquivo `.github/workflow/set_due_date_to_closed_issue.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
