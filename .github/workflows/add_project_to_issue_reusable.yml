@@ -9,9 +9,6 @@ on:
       ACCOUNT_TYPE:
         description: 'A github account type that owns the repo. It must be "users" or "orgs".'
         required: true
-      ACCOUNT:
-        description: 'A github user to what a project will be selected'
-        required: true
       PROJECT_NUMBER:
         description: 'A GitHub project number of the given user that will be updated'
         required: true
@@ -21,7 +18,12 @@ jobs:
     name: Add project to issue
     runs-on: ubuntu-latest
     steps:
+      - name: See repo owner/name
+        id: split
+        env:
+          OWNER_NAME: ${{ github.repository }}
+        run: echo "::set-output name=owner::${OWNER_NAME%/*}"
       - uses: actions/add-to-project@v0.4.0
         with:
-          project-url: "https://github.com/${{ secrets.ACCOUNT_TYPE }}/${{ secrets.ACCOUNT }}/projects/${{ secrets.PROJECT_NUMBER }}"
+          project-url: "https://github.com/${{ secrets.ACCOUNT_TYPE }}/${{ steps.split.outputs.owner }}/projects/${{ secrets.PROJECT_NUMBER }}"
           github-token: ${{ secrets.GH_TOKEN }}
