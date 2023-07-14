@@ -13,7 +13,7 @@ A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a 
 
 - Atualização da documentação (principalmente versão) no arquivo `READEME.md`.
 - Atualização arquivo `CHANGELOG.md` com um resumo das modificações da versão.
-- Realiza um commit com o número da nova versão. Exemplo: `git commit -m 'v1.0' --allow-empty`.
+- Realiza um commit com o número da nova versão. Exemplo: `git commit -m 'v1.0' --allow-empty`[^1].
 - Criação de tag e vinculação da mesma com o último commit:
 
 ```
@@ -81,3 +81,5 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
+
+[^1]: Caso seja necessário apagar uma tag criada erroneamente utilizar `git tag -d <tag-name>`, como sugerido [neste post](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/#:~:text=tag%20%2Dd%20%3Ctag_name%3E-,For%20example,-%2C%20if%20you%20wanted). Processo bastante similar ao delete de um branch (`git branch -d <branch-name>` ou `git branch -D <branch-name>` para branchs não mergiados na `main`.)
