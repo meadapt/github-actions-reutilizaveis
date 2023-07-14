@@ -6,9 +6,6 @@ on:
       GH_TOKEN:
         description: 'A token passed from the caller workflow.'
         required: true
-      ACCOUNT:
-        description: 'A github account type that owns the repo.'
-        required: true
       PROJECT_NUMBER:
         description: 'A GitHub project number of the given user that will be updated.'
         required: true
@@ -18,16 +15,38 @@ jobs:
     name: Set duo date to orgs closed issue
     runs-on: ubuntu-latest
     steps:
+      - name: See repo owner/name
+        id: split
+        env:
+          OWNER_NAME: ${{ github.repository }}
+        run: echo "::set-output name=owner::${OWNER_NAME%/*}"
+      - name: Call github api
+        uses: octokit/request-action@v2.x
+        id: get_account_info
+        with:
+          route: GET /users/{owner}
+          owner: ${{ steps.split.outputs.owner }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Get repo type
+        id: get_repo_type
+        run: |
+          if [ ${{ fromJson(steps.get_account_info.outputs.data).type }} == 'Organization' ]
+          then
+            echo "::set-output name=type::organization"
+          else
+            echo "::set-output name=type::user"
+          fi
       - name: Get project data
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          USER: ${{ secrets.ACCOUNT }}
+          USER: ${{ github.event.repository.name }}
           PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
           ISSUE_ID: ${{ github.event.issue.node_id }}
         run: |
           gh api graphql -f query='
             query($org: String!, $number: Int!) {
-              organization(login: $org){
+              ${{ steps.get_repo_type.outputs.type }}(login: $org){
                 projectV2(number: $number) {
                   id
                   fields(first:20) {
