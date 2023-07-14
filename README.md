@@ -56,31 +56,29 @@ jobs:
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
 
-## Adicionar duo date em issues de organizações fechados
+## Adicionar duo date em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/set_due_date_to_users_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar duo date em **issues de organizações** que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/set_due_date_to_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar duo date em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
-  - ACCOUNT: organização.
   - PROJECT_NUMBER: número GitHub Project.
 - Crie o arquivo `.github/workflow/set_due_date_to_closed_issue.yml.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
-name: Reusable Workflow to set due date to org closed issue
+name: Set due date to closed issue
 
 on:
   issues:
     types: [closed]
 
 jobs:
-  do-it:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_due_date_to_orgs_closed_issue_reusable.yml@RELEASE_VERSION
+  set_due_date_to_closed_issue:
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_due_date_to_closed_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        ACCOUNT: ${{ secrets.USER }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
