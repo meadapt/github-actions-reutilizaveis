@@ -22,7 +22,7 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: get_account_info
         with:
-          route: GET users/{owner}
+          route: GET /users/{owner}
           owner: ${{ steps.split.outputs.owner }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
