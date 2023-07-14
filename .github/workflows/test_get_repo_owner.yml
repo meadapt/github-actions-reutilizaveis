@@ -24,4 +24,4 @@ jobs:
         with:
           route: GET users/{owner}
           owner: ${{ steps.split.outputs.owner }}
-        - run: "echo latest release: '${{ steps.get_account_info.outputs.data }}'"
+      - run: "echo latest release: '${{ steps.get_account_info.outputs.data }}'"
