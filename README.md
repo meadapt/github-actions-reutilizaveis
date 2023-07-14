@@ -41,7 +41,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 
 ```
 # This uses a reusable workflow
-name: Add Project To Issue
+name: Add project to issue
 
 on:
   issues:

@@ -11,7 +11,7 @@ on:
         required: true
 
 jobs:
-  set-duo-date-to-orgs-closed-issue:
+  set_due_date_to_closed_issue:
     name: Set duo date to orgs closed issue
     runs-on: ubuntu-latest
     steps:

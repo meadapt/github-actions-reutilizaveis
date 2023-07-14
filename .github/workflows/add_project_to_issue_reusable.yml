@@ -11,7 +11,7 @@ on:
         required: true
 
 jobs:
-  add-project-to-issue:
+  add_project_to_issue:
     name: Add project to issue
     runs-on: ubuntu-latest
     steps:
