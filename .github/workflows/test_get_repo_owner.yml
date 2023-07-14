@@ -24,4 +24,6 @@ jobs:
         with:
           route: GET users/{owner}
           owner: ${{ steps.split.outputs.owner }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: "echo latest release: '${{ steps.get_account_info.outputs.data }}'"
