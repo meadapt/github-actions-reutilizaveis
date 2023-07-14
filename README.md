@@ -37,26 +37,22 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
-  - ACCOUNT_TYPE: `users` ou `orgs`.
-  - ACCOUNT: usuário ou organização.
   - PROJECT_NUMBER: número GitHub Project.
 - Crie o arquivo `.github/workflow/add_project_to_issue.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
-name: Reusable Workflow to add a project to issues
+name: Add Project To Issue
 
 on:
   issues:
     types: [opened]
 
 jobs:
-  do-it:
+  add_project_to_issue:
     uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        ACCOUNT_TYPE: ${{ secrets.ACCOUNT_TYPE }}
-        ACCOUNT: ${{ secrets.ACCOUNT }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
 
