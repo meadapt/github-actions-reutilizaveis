@@ -1,5 +1,7 @@
 # GitHub Actions Reutilizáveis
 
+[![actions-cool](https://img.shields.io/badge/using-actions--cool-blue?style=flat-square)](https://github.com/actions-cool)
+
 Conjunto de fluxos de trabalho ou GitHub Actions reutilizáveis, conforme proposto nos seguintes vídeos do YouTube:
 
 - [GitHub Actions Reusable Workflows FULL TUTORIAL with Examples: Templates on Steroids](https://www.youtube.com/watch?v=lRypYtmbKMs).
