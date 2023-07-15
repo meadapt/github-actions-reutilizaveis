@@ -7,7 +7,7 @@ on:
 
 jobs:
   set_due_date_to_closed_issue:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_due_date_to_closed_issue_reusable.yml@v2.1
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_due_date_to_closed_issue_reusable.yml@main
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
