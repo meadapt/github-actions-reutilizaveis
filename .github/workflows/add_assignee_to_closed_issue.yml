@@ -14,4 +14,4 @@ jobs:
           actions: 'add-assignees'
           token: ${{ secrets.GH_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          assignees: 'gabrielbdornas' 
+          assignees: ${{ github.event.issue.user.login }}
