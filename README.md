@@ -106,4 +106,9 @@ jobs:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
+## Referências
+
+- [Issues helper](https://github.com/marketplace/actions/issues-helper).
+- [Add to project](https://github.com/actions/add-to-project).
+
 [^1]: Caso seja necessário apagar uma tag criada erroneamente utilizar `git tag -d <tag-name>`, como sugerido [neste post](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/#:~:text=tag%20%2Dd%20%3Ctag_name%3E-,For%20example,-%2C%20if%20you%20wanted). Processo bastante similar ao delete de um branch (`git branch -d <branch-name>` ou `git branch -D <branch-name>` para branchs não mergiados na `main`.)
