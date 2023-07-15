@@ -1,0 +1,20 @@
+name: Add Assignee to closed issue
+
+on:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        description: 'A token passed from the caller workflow'
+        required: true
+
+jobs:
+  add-assigness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add assigness
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-assignees'
+          token: ${{ secrets.GH_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: ${{ github.event.issue.user.login }}

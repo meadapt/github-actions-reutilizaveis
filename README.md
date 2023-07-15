@@ -82,4 +82,28 @@ jobs:
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
 
+## Adicionar assignee em issues fechados
+
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue_reusable.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
+
+As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
+
+- GitHub secrets:
+  - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
+
+```
+# This uses a reusable workflow
+name: Add Assignee to closed issue
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  add_assignee_to_closed_issue:
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_assignee_to_closed_issue_reusable.yml@RELEASE_VERSION
+    secrets:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+```
+
 [^1]: Caso seja necessário apagar uma tag criada erroneamente utilizar `git tag -d <tag-name>`, como sugerido [neste post](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/#:~:text=tag%20%2Dd%20%3Ctag_name%3E-,For%20example,-%2C%20if%20you%20wanted). Processo bastante similar ao delete de um branch (`git branch -d <branch-name>` ou `git branch -D <branch-name>` para branchs não mergiados na `main`.)
