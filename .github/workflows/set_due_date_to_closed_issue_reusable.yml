@@ -70,8 +70,7 @@ jobs:
             }' -f org=$USER -F number=$PROJECT_NUMBER > project_data.json
           echo 'PROJECT_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'STATUS_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
-          echo 'BOARD_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Board") | .id' project_data.json) >> $GITHUB_ENV
-          echo 'ITERATION_OPTION_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Iteration") | .options[] | select(.name=="current") |.id' project_data.json) >> $GITHUB_ENV
+          echo 'ITERATION_OPTION_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Iteração") | .options[] | select(.name=="@current") |.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Due Date") | .id' project_data.json) >> $GITHUB_ENV
       - name: test iteration id
         run: echo $ITERATION_OPTION_ID
