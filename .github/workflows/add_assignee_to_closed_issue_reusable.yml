@@ -1,4 +1,4 @@
-name: Add Assignee to closed issue
+name: Add assignee to closed issue
 
 on:
   workflow_call:

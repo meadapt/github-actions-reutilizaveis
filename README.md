@@ -93,7 +93,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 
 ```
 # This uses a reusable workflow
-name: Add Assignee to closed issue
+name: Add assignee to closed issue
 
 on:
   issues:
