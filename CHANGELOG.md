@@ -3,6 +3,10 @@
 Documentação das principais alterações deste repositório.
 Baseado na filosofia [Mantenha um Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+### [v2.2] - 2023-07-18
+
+- Publica nova versão após criar actions reutilizável para adicionar assignee em issues fechados.
+
 ### [v2.1] - 2023-07-14
 
 - Corrige bug set duo date não funcionando em organizações do tipo user. See https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/issues/20.

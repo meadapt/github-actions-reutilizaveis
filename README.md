@@ -9,7 +9,7 @@ Conjunto de fluxos de trabalho ou GitHub Actions reutilizáveis, conforme propos
 
 Quando um novo Github Actions reutilizável é criado, sua documentação deve ser adicionada abaixo, devendo as informações confidenciais (secrets) serem bem projetadas para evitar o erro ["invalid secret, is not defined in the referenced workflow"](https://github.com/orgs/community/discussions/26749).
 
-A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma no lugar de `@RELEASE_VERSION` ou `@main` para utilizar a versão ainda não instável. **A versão mais atualizada publicada é a [v2.1](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tree/v2.1)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
+A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma no lugar de `@RELEASE_VERSION` ou `@main` para utilizar a versão ainda não instável. **A versão mais atualizada publicada é a [v2.2](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tree/v2.2)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
 
 ## Atualização de versões
 
