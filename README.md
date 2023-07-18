@@ -30,7 +30,7 @@ $ git tag v1.0 HEAD
 $ git push origin v1.0
 ```
 
-- Publicar uma nova [relaese](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/releases/new).
+- Publicar uma nova [release](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/releases/new).
 
 ## Adicionar projeto em um novo issue
 
