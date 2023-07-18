@@ -30,6 +30,8 @@ $ git tag v1.0 HEAD
 $ git push origin v1.0
 ```
 
+- Publicar uma nova [relaese](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/releases/new).
+
 ## Adicionar projeto em um novo issue
 
 [Este GitHub Actions reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_project_to_issue.yml) foi criado para automatizar o processo de vinculação [de um projeto a um novo issue](https://github.com/actions/add-to-project).
