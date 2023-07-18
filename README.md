@@ -92,6 +92,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
+- Crie o arquivo `.github/workflow/add_assignee_to_closed_issue_reusable.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
