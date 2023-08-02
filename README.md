@@ -88,7 +88,7 @@ jobs:
 
 ## Adicionar assignee em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue_reusable.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
