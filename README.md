@@ -41,7 +41,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
   - PROJECT_NUMBER: número GitHub Project.
-- Crie o arquivo `.github/workflow/add_project_to_issue.yml` com o seguinte conteúdo:
+- Crie o arquivo `.github/workflows/add_project_to_issue.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
@@ -68,7 +68,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
   - PROJECT_NUMBER: número GitHub Project.
-- Crie o arquivo `.github/workflow/set_due_date_to_closed_issue.yml` com o seguinte conteúdo:
+- Crie o arquivo `.github/workflows/set_due_date_to_closed_issue.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
@@ -94,7 +94,7 @@ As seguintes configurações devem ser feitas no repositório que irá utilizar 
 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
-- Crie o arquivo `.github/workflow/add_assignee_to_closed_issue_reusable.yml` com o seguinte conteúdo:
+- Crie o arquivo `.github/workflows/add_assignee_to_closed_issue_reusable.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
