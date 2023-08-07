@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  add-assigness:
+  reusable_job:
     runs-on: ubuntu-latest
     steps:
       - name: Add assigness

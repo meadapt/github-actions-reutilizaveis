@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  publish_mkdocs_with_mike_version:
+  reusable_job:
     runs-on: Ubuntu-20.04
     steps:
 
