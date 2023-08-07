@@ -118,7 +118,7 @@ jobs:
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
 - Crie o arquivo `.github/workflows/publish_mkdocs_with_mike_version.yml` com o seguinte conteúdo:
-    - Não esqueça de incluir o número da versão (`my_doc_version` entre aspas simples) que se deseja publicar a documentação.
+    - Não esqueça de incluir o número da versão (`my_doc_version` entre aspas duplas) que se deseja publicar a documentação.
 
 ```
 # This uses a reusable workflow
@@ -134,9 +134,8 @@ on:
 jobs:
   publish_mkdocs_wth_mike_version:
     uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml@RELEASE_VERSION
-    with:
-      event_type: trigger_reusable_workflow
-      client_payload: '{"doc_version": "my_doc_version"}' # Sua versão
+      with:
+        doc_version: 'my_doc_version'
 ```
 
 ## Referências

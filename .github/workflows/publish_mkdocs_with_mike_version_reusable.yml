@@ -1,8 +1,11 @@
 name: Publish mkdocs with mike version reusable
 
 on:
-  repository_dispatch:
-    types: [trigger_reusable_workflow]
+  workflow_call:
+    inputs:
+      doc_version:
+        description: 'The version of the documentation to be publish.'
+        required: true
 
 jobs:
   publish_mkdocs_wth_mike_version:
@@ -26,4 +29,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Publish Mkdcos with Mike
-        run: mike deploy --push --update-aliases ${{ github.event.client_payload.doc_version }} latest
+        run: mike deploy --push --update-aliases ${{ github.event.inputs.doc_version }} latest
