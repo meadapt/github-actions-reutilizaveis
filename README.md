@@ -118,7 +118,7 @@ jobs:
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
 - Crie o arquivo `.github/workflows/publish_mkdocs_with_mike_version.yml` com o seguinte conteúdo:
-    - Não esqueça de incluir o número da versão (`my_doc_version` entre aspas duplas) que se deseja publicar a documentação.
+    - Não esqueça de incluir o número da versão (`my_doc_version` entre aspas) que se deseja publicar a documentação.
 
 ```
 # This uses a reusable workflow
