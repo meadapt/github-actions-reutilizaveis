@@ -13,7 +13,7 @@ A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a 
 
 ## Atualização de versões
 
-- Atualização da documentação (principalmente versão) no arquivo `READEME.md`.
+- Atualização da documentação (principalmente versão) no arquivo `README.md`.
 - Atualização arquivo `CHANGELOG.md` com um resumo das modificações da versão.
 - Realiza um commit com o número da nova versão. Exemplo: `git commit -m 'v1.0' --allow-empty`[^1].
 - Criação de tag e vinculação da mesma com o último commit:
