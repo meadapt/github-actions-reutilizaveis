@@ -1,0 +1,32 @@
+name: Publish mkdocs with mike version reusable
+
+on:
+  workflow_call:
+    inputs:
+      doc_version:
+        description: 'The document version to be puslish.'
+        required: true
+
+jobs:
+  publish_mkdocs_wth_mike_version:
+    runs-on: Ubuntu-20.04
+    steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.2
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git user
+        uses: fregante/setup-git-user@v2
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Publish Mkdcos with Mike
+        run: mike deploy --push --update-aliases ${{ steps.set-output-defaults.outputs.doc_version }} latest

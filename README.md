@@ -88,7 +88,7 @@ jobs:
 
 ## Adicionar assignee em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue_reusable.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -109,6 +109,33 @@ jobs:
     uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_assignee_to_closed_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+```
+
+## Publica Mkdocs com Mike
+
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml) foi criado para automatizar o processo de publicação de sites estáticos utilizando Mkdocs e Mike e GitHub pages.
+
+As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
+
+- Crie o arquivo `.github/workflows/publish_mkdocs_with_mike_version.yml` com o seguinte conteúdo:
+    - Não esqueça de incluir o número da versão (`doc_version`) que se deseja publicar a documentação.
+
+```
+# This uses a reusable workflow
+name: Publish mkdocs with mike version reusable
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+
+jobs:
+  publish_mkdocs_wth_mike_version:
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml@RELEASE_VERSION
+    inputs:
+        doc_version: VERSÃO_DESEJADA
 ```
 
 ## Referências
