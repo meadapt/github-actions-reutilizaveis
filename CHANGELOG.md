@@ -3,6 +3,11 @@
 Documentação das principais alterações deste repositório.
 Baseado na filosofia [Mantenha um Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+### [v2.3] - 2023-08-07
+
+- Publica nova versão após criar actions reutilizável para publicar documentação mkdocs utilizando mike.
+- Melhora documentação de maneira geral.
+
 ### [v2.2] - 2023-07-18
 
 - Publica nova versão após criar actions reutilizável para adicionar assignee em issues fechados.
