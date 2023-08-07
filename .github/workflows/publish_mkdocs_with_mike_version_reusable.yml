@@ -30,6 +30,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Publish Mkdcos with Mike
-        run: echo ${{ github.event.inputs.doc_version }}
-
-      # mike deploy --push --update-aliases ${{ github.event.inputs.doc_version }} latest
+        run: mike deploy --push --update-aliases ${{ inputs.doc_version }} latest

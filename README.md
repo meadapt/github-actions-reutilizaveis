@@ -132,7 +132,7 @@ on:
       - 'docs/**'
 
 jobs:
-  publish_mkdocs_wth_mike_version:
+  publish_mkdocs_with_mike_version:
     uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml@RELEASE_VERSION
       with:
         doc_version: 'my_doc_version'
