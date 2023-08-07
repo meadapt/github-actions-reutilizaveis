@@ -1,11 +1,8 @@
 name: Publish mkdocs with mike version reusable
 
 on:
-  workflow_call:
-    inputs:
-      doc_version:
-        description: 'The document version to be puslish.'
-        required: true
+  repository_dispatch:
+    types: [trigger_reusable_workflow]
 
 jobs:
   publish_mkdocs_wth_mike_version:
@@ -29,4 +26,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Publish Mkdcos with Mike
-        run: mike deploy --push --update-aliases ${{ steps.set-output-defaults.outputs.doc_version }} latest
+        run: mike deploy --push --update-aliases ${{ github.event.client_payload.doc_version }} latest
