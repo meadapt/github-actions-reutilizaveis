@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  publish_mkdocs_wth_mike_version:
+  publish_mkdocs_with_mike_version:
     runs-on: Ubuntu-20.04
     steps:
 
@@ -30,4 +30,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Publish Mkdcos with Mike
-        run: mike deploy --push --update-aliases ${{ github.event.inputs.doc_version }} latest
+        run: echo ${{ github.event.inputs.doc_version }}
+
+      # mike deploy --push --update-aliases ${{ github.event.inputs.doc_version }} latest
