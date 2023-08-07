@@ -6,6 +6,7 @@ on:
       doc_version:
         description: 'The version of the documentation to be publish.'
         required: true
+        type: string
 
 jobs:
   publish_mkdocs_wth_mike_version:
