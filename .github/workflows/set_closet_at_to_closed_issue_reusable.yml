@@ -1,4 +1,4 @@
-name: Set due date to orgs closed issue
+name: Set Closed at to closed issue
 
 on:
   workflow_call:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   reusable_job:
-    name: Set duo date to orgs closed issue
+    name: Set Closed at to closed issue
     runs-on: ubuntu-latest
     steps:
       - name: See repo owner/name
@@ -71,7 +71,7 @@ jobs:
           echo 'PROJECT_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'STATUS_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
           echo 'ITERATION_OPTION_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Iteração") | .options[] | select(.name=="Iteration 1") |.id' project_data.json) >> $GITHUB_ENV
-          echo 'DATE_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Due Date") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'DATE_FIELD_ID='$(jq '.data.${{ steps.get_repo_type.outputs.type }}.projectV2.fields.nodes[] | select(.name== "Closed at") | .id' project_data.json) >> $GITHUB_ENV
       - name: test iteration id
         run: echo $ITERATION_OPTION_ID
       - name: Get Issue Node Id
@@ -91,7 +91,7 @@ jobs:
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
-      - name: Set Duo Date
+      - name: Set Closed at
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |

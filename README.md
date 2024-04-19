@@ -59,28 +59,28 @@ jobs:
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
 ```
 
-## Adicionar duo date em issues fechados
+## Adicionar closet at em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/set_due_date_to_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar duo date em issues que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/set_closet_at_to_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar closet at em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
 - GitHub secrets:
   - GH_TOKEN, conforme explicado [aqui](https://github.com/actions/add-to-project#inputs).
   - PROJECT_NUMBER: número GitHub Project.
-- Crie o arquivo `.github/workflows/set_due_date_to_closed_issue.yml` com o seguinte conteúdo:
+- Crie o arquivo `.github/workflows/set_closet_at_to_closed_issue.yml` com o seguinte conteúdo:
 
 ```
 # This uses a reusable workflow
-name: Set due date to closed issue
+name: Set closet at to closed issue
 
 on:
   issues:
     types: [closed]
 
 jobs:
-  set_due_date_to_closed_issue:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_due_date_to_closed_issue_reusable.yml@RELEASE_VERSION
+  set_closet_at_to_closed_issue:
+    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_closet_at_to_closed_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
