@@ -9,7 +9,7 @@ Conjunto de fluxos de trabalho ou GitHub Actions reutilizáveis, conforme propos
 
 Quando um novo Github Actions reutilizável é criado, sua documentação deve ser adicionada abaixo, devendo as informações confidenciais (secrets) serem bem projetadas para evitar o erro ["invalid secret, is not defined in the referenced workflow"](https://github.com/orgs/community/discussions/26749).
 
-A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma no lugar de `@RELEASE_VERSION` ou `@main` para utilizar a versão ainda não instável. **A versão mais atualizada publicada é a [v2.4](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tree/v2.4)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/tags) do repositório.
+A documentação incluída abaixo utiliza `@RELEASE_VERSION`. Para configurar a versão desejada basta incluir a mesma no lugar de `@RELEASE_VERSION` ou `@main` para utilizar a versão ainda não instável. **A versão mais atualizada publicada é a [v2.5](https://github.com/meadapt/github-actions-reutilizaveis/tree/v2.5)**. Todas as versões disponíveis podem ser consultadas nas [tags](https://github.com/meadapt/github-actions-reutilizaveis/tags) do repositório.
 
 ## Atualização de versões
 
@@ -30,11 +30,11 @@ $ git tag v1.0 HEAD
 $ git push origin v1.0
 ```
 
-- Publicar uma nova [release](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/releases/new).
+- Publicar uma nova [release](https://github.com/meadapt/github-actions-reutilizaveis/releases/new).
 
 ## Adicionar projeto em um novo issue
 
-[Este GitHub Actions reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_project_to_issue.yml) foi criado para automatizar o processo de vinculação [de um projeto a um novo issue](https://github.com/actions/add-to-project).
+[Este GitHub Actions reutilizável](https://github.com/meadapt/github-actions-reutilizaveis/blob/main/.github/workflows/add_project_to_issue.yml) foi criado para automatizar o processo de vinculação [de um projeto a um novo issue](https://github.com/actions/add-to-project).
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -53,7 +53,7 @@ on:
 
 jobs:
   add_project_to_issue:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@RELEASE_VERSION
+    uses: meadapt/github-actions-reutilizaveis/.github/workflows/add_project_to_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
@@ -61,7 +61,7 @@ jobs:
 
 ## Adicionar closet at em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/set_closet_at_to_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar closet at em issues que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/meadapt/github-actions-reutilizaveis/blob/main/.github/workflows/set_closet_at_to_closed_issue_reusable.yml) foi criado para automatizar o processo de adicionar closet at em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -80,7 +80,7 @@ on:
 
 jobs:
   set_closet_at_to_closed_issue:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/set_closet_at_to_closed_issue_reusable.yml@RELEASE_VERSION
+    uses: meadapt/github-actions-reutilizaveis/.github/workflows/set_closet_at_to_closed_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
         PROJECT_NUMBER: ${{ secrets.PROJECT_NUMBER }}
@@ -88,7 +88,7 @@ jobs:
 
 ## Adicionar assignee em issues fechados
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue_reusable.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
+[Este fluxo de trabalho reutilizável](https://github.com/meadapt/github-actions-reutilizaveis/blob/main/.github/workflows/add_assignee_to_closed_issue_reusable.yml) foi criado para automatizar o processo de informar assignee em issues que foram fechados.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -106,14 +106,14 @@ on:
 
 jobs:
   add_assignee_to_closed_issue:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/add_assignee_to_closed_issue_reusable.yml@RELEASE_VERSION
+    uses: meadapt/github-actions-reutilizaveis/.github/workflows/add_assignee_to_closed_issue_reusable.yml@RELEASE_VERSION
     secrets:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
 
 ## Publica Mkdocs com Mike
 
-[Este fluxo de trabalho reutilizável](https://github.com/o-futuro-ja-comecou/github-actions-reutilizaveis/blob/main/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml) foi criado para automatizar o processo de publicação de sites estáticos utilizando Mkdocs e Mike e GitHub pages.
+[Este fluxo de trabalho reutilizável](https://github.com/meadapt/github-actions-reutilizaveis/blob/main/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml) foi criado para automatizar o processo de publicação de sites estáticos utilizando Mkdocs e Mike e GitHub pages.
 
 As seguintes configurações devem ser feitas no repositório que irá utilizar este processo:
 
@@ -133,7 +133,7 @@ on:
 
 jobs:
   publish_mkdocs_with_mike_version:
-    uses: o-futuro-ja-comecou/github-actions-reutilizaveis/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml@RELEASE_VERSION
+    uses: meadapt/github-actions-reutilizaveis/.github/workflows/publish_mkdocs_with_mike_version_reusable.yml@RELEASE_VERSION
     with:
       doc_version: 'my_doc_version'
 ```
